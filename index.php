@@ -75,7 +75,7 @@
           $redirect = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
           header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
           error_log("+++++++++++++ Got code: ", 0);
-          //echo $_SESSION['token'];
+         
         }
 
       if (isset($_SESSION['token'])) {
@@ -97,7 +97,6 @@
            echo $event->getSummary();
         }*/
         //echo $calendar->getSUmmary();
-        error_log("+++++++++++++ calling contact query: ", 0);
         $request = new Google_Http_Request("https://www.google.com/m8/feeds/contacts/default/full?max-results=10000&alt=json");
         error_log("+++++++++++++ created google http request: ", 0);
         $val = $client->getAuth()->authenticatedRequest($request);
